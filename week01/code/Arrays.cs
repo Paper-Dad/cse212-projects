@@ -13,7 +13,21 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        // 1. Create a new array of doubles with the specified length.
+
+        var multiples = new double[length];
+
+        // 2. Use a for loop to iterate from 0 to specified length
+
+        for (int i = 0; i < length; i++)
+        {
+            // 3. For each iteration, calculate the multiple of the number by multiplying it with (i + 1) *to overcome index starting at 0* and store it in the array.
+            multiples[i] = number * (i + 1);
+        }
+
+        //4. Return the array of multiples.
+
+        return multiples;
     }
 
     /// <summary>
@@ -29,5 +43,24 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+        // 1. Create a new list to hold the rotated values.
+        List<int> rotated = new List<int>();
+
+        // 2. Add the last 'amount' elements to the rotated list.
+        for (int i = data.Count - amount; i < data.Count; i++)
+        {
+            rotated.Add(data[i]);
+        }
+
+        // 3. Add the remaining elements to the rotated list.
+        for (int i = 0; i < data.Count - amount; i++)
+        {
+            rotated.Add(data[i]);
+        }
+
+        // 4. Clear the original list and add all elements from the rotated list.
+        data.Clear();
+        data.AddRange(rotated);
     }
 }
